@@ -33,7 +33,7 @@ function playRound(playerSelection, computerSelection) {
     else if (playerSelection === 'PAPER') {
         if (computerSelection === 'SCISSORS') {
             return playerLose;
-        } else if (computerSelection === 'PAPER') {
+        } else if (computerSelection === 'ROCK') {
             return playerWin;
         }
     }
@@ -50,5 +50,10 @@ function playRound(playerSelection, computerSelection) {
     }
 }
 
-const playerSelection = "rock";
-const computerSelection = getComputerChoice();
+function game() {
+    for (i = 0; i < 5; i++) {
+        let playerSelection = prompt("Please enter your choice of rock, paper, or scissors:", "");
+        let computerSelection = getComputerChoice();
+        console.log(playRound(playerSelection, computerSelection));
+    }
+}
