@@ -21,32 +21,32 @@ function playRound(playerSelection, computerSelection) {
     let playerWin = `You win! ${playerSelection} beats ${computerSelection}`;
 
     if (playerSelection === computerSelection) {
-        return "It's a tie!";
+        return alert("It's a tie!");
     }
     else if (playerSelection === 'ROCK') {
         if (computerSelection === 'PAPER') {
-            return playerLose;
+            return alert(playerLose);
         } else if (computerSelection === 'SCISSORS') {
-            return playerWin;
+            return alert(playerWin);
         }
     }
     else if (playerSelection === 'PAPER') {
         if (computerSelection === 'SCISSORS') {
-            return playerLose;
+            return alert(playerLose);
         } else if (computerSelection === 'ROCK') {
-            return playerWin;
+            return alert(playerWin);
         }
     }
     else if (playerSelection === 'SCISSORS') {
         if (computerSelection === 'ROCK') {
-            return playerLose;
+            return alert(playerLose);
         }
         else if (computerSelection === 'PAPER') {
-            return playerWin;
+            return alert(playerWin);
         }
     }
     else {
-        return "That is not a valid answer!"
+        return alert("That is not a valid answer!")
     }
 }
 
