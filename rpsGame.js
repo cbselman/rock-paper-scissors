@@ -61,9 +61,20 @@ function playRound(playerChoice) {
     const cpuChoice = getComputerChoice();
     let winner = whoWins(playerChoice, cpuChoice);
     
-    if (winner === 'Player') playerScore++;
+    if (winner === 'Player') {
+        playerScore++;
+        document.getElementById('playerScore').innerText = `Player Score: ${playerScore}`;
+    }
 
-    if (winner === 'Computer') computerScore++;
+    if (winner === 'Computer') {
+        computerScore++;
+        document.getElementById('cpuScore').innerText = `Computer Score: ${computerScore}`;
+    }
+
+    if (winner === 'Tie') {
+        ties++;
+        document.getElementById('ties').innerText = `Ties: ${ties}`;
+    }
     
     return winner;
 }
@@ -73,6 +84,9 @@ function newGame() { //Resets all points to 0
     computerScore = 0;
     ties = 0;
     alert('Scores are reset!')
+    document.getElementById('playerScore').innerText = `Player Score: 0`;
+    document.getElementById('cpuScore').innerText = `Computer Score: 0`;
+    document.getElementById('ties').innerText = `Ties: 0`;
     return;
 }
 
