@@ -1,10 +1,9 @@
-let playerScore;
-let computerScore;
-let ties;
+let playerScore = 0;
+let computerScore = 0;
+let ties = 0;
 
-function getComputerChoice() {
-    
-    let number = Math.floor(Math.random() * (4 - 1) + 1);
+function getComputerChoice() { 
+    let number = Math.floor(Math.random() * (4 - 1) + 1); // Calculates an interger of 1-3
     let computerChoice;
 
     if (number === 1) {
@@ -18,60 +17,105 @@ function getComputerChoice() {
     return computerChoice;
 }
 
-function playRound(playerSelection, computerSelection) {
+function whoWins(playerSelection, computerSelection) {
     playerSelection = playerSelection.toUpperCase();
 
     let playerLose = `You lose! ${computerSelection} beats ${playerSelection}`;
     let playerWin = `You win! ${playerSelection} beats ${computerSelection}`;
 
     if (playerSelection === computerSelection) {
-        alert("It's a tie!");
-        return ++ties;
+        //alert("It's a tie!");
+        return 'Tie';
     }
     else if (playerSelection === 'ROCK') {
         if (computerSelection === 'PAPER') {
-            alert(playerLose);
-            return ++computerScore;
+           // alert(playerLose);
+            return 'Computer';
         } else if (computerSelection === 'SCISSORS') {
-            alert(playerWin);
-            return ++playerScore;
+            //alert(playerWin);
+            return 'Player';
         }
     }
     else if (playerSelection === 'PAPER') {
         if (computerSelection === 'SCISSORS') {
-            alert(playerLose);
-            return ++computerScore;
+            //alert(playerLose);
+            return 'Computer';;
         } else if (computerSelection === 'ROCK') {
-            alert(playerWin);
-            return ++playerScore;
+            //alert(playerWin);
+            return 'Player';
         }
     }
     else if (playerSelection === 'SCISSORS') {
         if (computerSelection === 'ROCK') {
-            alert(playerLose);
-            return ++computerScore;
+            //alert(playerLose);
+            return 'Computer';
         }
         else if (computerSelection === 'PAPER') {
-            alert(playerWin);
-            return ++playerScore;
+            //alert(playerWin);
+            return 'Player';
         }
-    }
-    else {
-        alert("That is not a valid answer! Point for computer!");
-        return ++computerScore;
     }
 }
 
-function game() {
+function playRound(playerChoice) {
+    const cpuChoice = getComputerChoice();
+    let winner = whoWins(playerChoice, cpuChoice);
+    
+    if (winner === 'Player') playerScore++;
+
+    if (winner === 'Computer') computerScore++;
+    
+    return winner;
+}
+
+function newGame() { //Resets all points to 0
     playerScore = 0;
     computerScore = 0;
     ties = 0;
-
-    for (i = 0; i < 5; i++) {
-        let playerSelection = prompt("Please enter your choice of rock, paper, or scissors:", "");
-        let computerSelection = getComputerChoice();
-        playRound(playerSelection, computerSelection);
-    }
-
-    return alert(`The final score is ${playerScore} to ${computerScore}, with ${ties} draws!`);
+    alert('Scores are reset!')
+    return;
 }
+
+const rock = document.querySelector('#rock');
+const paper = document.querySelector('#paper');
+const scissors = document.querySelector('#scissors');
+    
+    
+rock.addEventListener('click', function () { 
+    let winner = playRound('ROCK');
+    console.log(winner);
+    if (playerScore == 5) {
+        alert('Congrats! You win!');
+        newGame();
+    }
+    if (computerScore == 5) {
+        alert('Sorry, you lose!');
+        newGame();
+    }
+});
+
+paper.addEventListener('click', function () {
+    let winner = playRound('PAPER');
+    console.log(winner);
+    if (playerScore == 5) {
+        alert('Congrats! You win!');
+        newGame();
+    }
+    if (computerScore == 5) {
+        alert('Sorry, you lose!');
+        newGame();
+    }
+});
+
+scissors.addEventListener('click', function () {
+    let winner = playRound('SCISSORS');
+    console.log(winner);
+    if (playerScore == 5) {
+        alert('Congrats! You win!');
+        newGame();
+    }
+    if (computerScore == 5) {
+        alert('Sorry, you lose!');
+        newGame();
+    }
+});
