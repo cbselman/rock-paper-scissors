@@ -96,6 +96,10 @@ function gameOver() {
     rock.disabled = true;
     paper.disabled = true;
     scissors.disabled = true;
+
+    if (playerScore == 5) winnerBox.innerText = 'Congrats, you win!';
+    if (computerScore == 5) winnerBox.innerText = 'Sorry, you lose!';
+    playAgain.style.visibility = "visible";
 }
 
 const rock = document.querySelector('#rock');
@@ -109,29 +113,16 @@ const playAgain = document.getElementById('playAgain');
 rock.addEventListener('click', function () { 
     let winner = playRound('ROCK');
     console.log(winner);
-    if (playerScore == 5) {
-        winnerBox.innerText = 'Congrats, you win!';
-        playAgain.style.visibility = "visible";
+    if (playerScore == 5 || computerScore == 5) {
         gameOver();
     }
-    if (computerScore == 5) {
-        winnerBox.innerText = 'Sorry, you lose!';
-        playAgain.style.visibility = "visible";
-        gameOver();
-    }
+
 });
 
 paper.addEventListener('click', function () {
     let winner = playRound('PAPER');
     console.log(winner);
-    if (playerScore == 5) {
-        winnerBox.innerText = 'Congrats, you win!';
-        playAgain.style.visibility = "visible";
-        gameOver();
-    }
-    if (computerScore == 5) {
-        winnerBox.innerText = 'Sorry, you lose!';
-        playAgain.style.visibility = "visible";
+    if (playerScore == 5 || computerScore == 5) {
         gameOver();
     }
 });
@@ -139,14 +130,7 @@ paper.addEventListener('click', function () {
 scissors.addEventListener('click', function () {
     let winner = playRound('SCISSORS');
     console.log(winner);
-    if (playerScore == 5) {
-        winnerBox.innerText = 'Congrats, you win!';
-        playAgain.style.visibility = "visible";
-        gameOver();
-    }
-    if (computerScore == 5) {
-        winnerBox.innerText = 'Sorry, you lose!';
-        playAgain.style.visibility = "visible";
+    if (playerScore == 5 || computerScore == 5) {
         gameOver();
     }
 });
