@@ -83,7 +83,6 @@ function newGame() { //Resets all points to 0
     playerScore = 0;
     computerScore = 0;
     ties = 0;
-    alert('Scores are reset!')
     document.getElementById('playerScore').innerText = `Player Score: 0`;
     document.getElementById('cpuScore').innerText = `Computer Score: 0`;
     document.getElementById('ties').innerText = `Ties: 0`;
@@ -94,10 +93,8 @@ const rock = document.querySelector('#rock');
 const paper = document.querySelector('#paper');
 const scissors = document.querySelector('#scissors');
 
-const playAgain = document.createElement('button');
-playAgain.innerText = 'Play again?';
-
 const winnerBox = document.querySelector('#winner');
+const playAgain = document.getElementById('playAgain');
     
     
 rock.addEventListener('click', function () { 
@@ -105,13 +102,11 @@ rock.addEventListener('click', function () {
     console.log(winner);
     if (playerScore == 5) {
         winnerBox.innerText = 'Congrats, you win!';
-        winnerBox.appendChild(playAgain);
-        newGame();
+        playAgain.style.visibility = "visible";
     }
     if (computerScore == 5) {
         winnerBox.innerText = 'Sorry, you lose!';
-        winnerBox.appendChild(playAgain);
-        newGame();
+        playAgain.style.visibility = "visible";
     }
 });
 
@@ -120,13 +115,11 @@ paper.addEventListener('click', function () {
     console.log(winner);
     if (playerScore == 5) {
         winnerBox.innerText = 'Congrats, you win!';
-        winnerBox.appendChild(playAgain);
-        newGame();
+        playAgain.style.visibility = "visible";
     }
     if (computerScore == 5) {
         winnerBox.innerText = 'Sorry, you lose!';
-        winnerBox.appendChild(playAgain);
-        newGame();
+        playAgain.style.visibility = "visible";
     }
 });
 
@@ -135,12 +128,16 @@ scissors.addEventListener('click', function () {
     console.log(winner);
     if (playerScore == 5) {
         winnerBox.innerText = 'Congrats, you win!';
-        winnerBox.appendChild(playAgain);
-        newGame();
+        playAgain.style.visibility = "visible";
     }
     if (computerScore == 5) {
         winnerBox.innerText = 'Sorry, you lose!';
-        winnerBox.appendChild(playAgain);
-        newGame();
+        playAgain.style.visibility = "visible";
     }
 });
+
+playAgain.addEventListener('click', function() {
+    newGame();
+    winnerBox.innerText = "";
+    playAgain.style.visibility = "hidden";
+})
