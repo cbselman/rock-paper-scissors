@@ -93,17 +93,24 @@ function newGame() { //Resets all points to 0
 const rock = document.querySelector('#rock');
 const paper = document.querySelector('#paper');
 const scissors = document.querySelector('#scissors');
+
+const playAgain = document.createElement('button');
+playAgain.innerText = 'Play again?';
+
+const winnerBox = document.querySelector('#winner');
     
     
 rock.addEventListener('click', function () { 
     let winner = playRound('ROCK');
     console.log(winner);
     if (playerScore == 5) {
-        alert('Congrats! You win!');
+        winnerBox.innerText = 'Congrats, you win!';
+        winnerBox.appendChild(playAgain);
         newGame();
     }
     if (computerScore == 5) {
-        alert('Sorry, you lose!');
+        winnerBox.innerText = 'Sorry, you lose!';
+        winnerBox.appendChild(playAgain);
         newGame();
     }
 });
@@ -112,11 +119,13 @@ paper.addEventListener('click', function () {
     let winner = playRound('PAPER');
     console.log(winner);
     if (playerScore == 5) {
-        alert('Congrats! You win!');
+        winnerBox.innerText = 'Congrats, you win!';
+        winnerBox.appendChild(playAgain);
         newGame();
     }
     if (computerScore == 5) {
-        alert('Sorry, you lose!');
+        winnerBox.innerText = 'Sorry, you lose!';
+        winnerBox.appendChild(playAgain);
         newGame();
     }
 });
@@ -125,11 +134,13 @@ scissors.addEventListener('click', function () {
     let winner = playRound('SCISSORS');
     console.log(winner);
     if (playerScore == 5) {
-        alert('Congrats! You win!');
+        winnerBox.innerText = 'Congrats, you win!';
+        winnerBox.appendChild(playAgain);
         newGame();
     }
     if (computerScore == 5) {
-        alert('Sorry, you lose!');
+        winnerBox.innerText = 'Sorry, you lose!';
+        winnerBox.appendChild(playAgain);
         newGame();
     }
 });
