@@ -14,6 +14,7 @@ function getComputerChoice() {
         computerChoice = 'SCISSORS';
     }
 
+    document.getElementById("cpu").innerText = computerChoice;
     return computerChoice;
 }
 
@@ -60,6 +61,7 @@ function whoWins(playerSelection, computerSelection) {
 function playRound(playerChoice) {
     const cpuChoice = getComputerChoice();
     let winner = whoWins(playerChoice, cpuChoice);
+    document.getElementById("player").innerText = playerChoice;
     
     if (winner === 'Player') {
         playerScore++;
@@ -76,7 +78,7 @@ function playRound(playerChoice) {
         document.getElementById('ties').innerText = `Ties: ${ties}`;
     }
     
-    return winner;
+    return;
 }
 
 function newGame() { //Resets all points to 0
@@ -111,8 +113,7 @@ const playAgain = document.getElementById('playAgain');
     
     
 rock.addEventListener('click', function () { 
-    let winner = playRound('ROCK');
-    console.log(winner);
+    playRound('ROCK');
     if (playerScore == 5 || computerScore == 5) {
         gameOver();
     }
@@ -120,16 +121,14 @@ rock.addEventListener('click', function () {
 });
 
 paper.addEventListener('click', function () {
-    let winner = playRound('PAPER');
-    console.log(winner);
+    playRound('PAPER');
     if (playerScore == 5 || computerScore == 5) {
         gameOver();
     }
 });
 
 scissors.addEventListener('click', function () {
-    let winner = playRound('SCISSORS');
-    console.log(winner);
+    playRound('SCISSORS');
     if (playerScore == 5 || computerScore == 5) {
         gameOver();
     }

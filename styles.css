@@ -31,7 +31,12 @@ button {
     border-radius: 10px;
 }
 
-#results {
+#choiceDisplay {
+    display: flex;
+    justify-content: space-between
+}
+
+.results {
     display: flex;
     flex-direction: column;
     align-items: center;
