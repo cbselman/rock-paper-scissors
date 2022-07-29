@@ -86,7 +86,16 @@ function newGame() { //Resets all points to 0
     document.getElementById('playerScore').innerText = `Player Score: 0`;
     document.getElementById('cpuScore').innerText = `Computer Score: 0`;
     document.getElementById('ties').innerText = `Ties: 0`;
+    rock.disabled = false;
+    paper.disabled = false;
+    scissors.disabled = false;
     return;
+}
+
+function gameOver() {
+    rock.disabled = true;
+    paper.disabled = true;
+    scissors.disabled = true;
 }
 
 const rock = document.querySelector('#rock');
@@ -103,10 +112,12 @@ rock.addEventListener('click', function () {
     if (playerScore == 5) {
         winnerBox.innerText = 'Congrats, you win!';
         playAgain.style.visibility = "visible";
+        gameOver();
     }
     if (computerScore == 5) {
         winnerBox.innerText = 'Sorry, you lose!';
         playAgain.style.visibility = "visible";
+        gameOver();
     }
 });
 
@@ -116,10 +127,12 @@ paper.addEventListener('click', function () {
     if (playerScore == 5) {
         winnerBox.innerText = 'Congrats, you win!';
         playAgain.style.visibility = "visible";
+        gameOver();
     }
     if (computerScore == 5) {
         winnerBox.innerText = 'Sorry, you lose!';
         playAgain.style.visibility = "visible";
+        gameOver();
     }
 });
 
@@ -129,10 +142,12 @@ scissors.addEventListener('click', function () {
     if (playerScore == 5) {
         winnerBox.innerText = 'Congrats, you win!';
         playAgain.style.visibility = "visible";
+        gameOver();
     }
     if (computerScore == 5) {
         winnerBox.innerText = 'Sorry, you lose!';
         playAgain.style.visibility = "visible";
+        gameOver();
     }
 });
 
