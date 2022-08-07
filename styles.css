@@ -3,20 +3,26 @@ body {
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
-    background-color:grey;
+    background-color: green;
     margin: 0;
     height: 100vh;
     font-family: Arial, Helvetica, sans-serif;
 }
 
 h1 {
-    font-size: 50px;
+    font-size: 75px;
+    color: white;
 }
 
 #buttonBox {
     display: flex;
     justify-content: space-between;
     gap: 25px;
+}
+
+#rock:hover, #paper:hover, #scissors:hover {
+    background-color: gold;
+    transition: .25s linear;
 }
 
 img {
@@ -29,6 +35,7 @@ button {
     height: 150px;
     border: 5px solid black;
     border-radius: 10px;
+    font-weight: bold;
 }
 
 #choiceDisplay {
@@ -48,6 +55,10 @@ button {
     background-color: white;
 }
 
+#player, #cpu {
+    font-style: italic;
+}
+
 #winner {
     display: flex;
     flex-direction: column;
@@ -56,12 +67,14 @@ button {
     font-weight: bold;
     margin: 10px;
     gap: 10px;
+    color: white;
 }
 
 #playAgain {
     height: 70px;
     font-size: large;
     font-weight: bold;
+    visibility: hidden;
 }
 
 #footer {

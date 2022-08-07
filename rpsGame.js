@@ -88,6 +88,8 @@ function newGame() { //Resets all points to 0
     document.getElementById('playerScore').innerText = `Player Score: 0`;
     document.getElementById('cpuScore').innerText = `Computer Score: 0`;
     document.getElementById('ties').innerText = `Ties: 0`;
+    document.getElementById("player").textContent = " ";
+    document.getElementById("cpu").textContent= " ";
     rock.disabled = false;
     paper.disabled = false;
     scissors.disabled = false;
